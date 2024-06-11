@@ -1,10 +1,12 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+import authRoutes from "./routes/auth.route.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 dotenv.config();
+app.use(express.json()); // parser
 
 mongoose
   .connect(process.env.MONGO_URL)
@@ -22,3 +24,5 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Blog server running on port ${PORT}`);
 });
+
+app.use('/api/auth', authRoutes);
