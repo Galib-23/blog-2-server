@@ -60,7 +60,7 @@ export const signin = async (req, res, next) => {
 
     return res
       .status(200)
-      .cookie("access-token", token, {
+      .cookie("access_token", token, {
         httpOnly: true,
       })
       .json(rest);
@@ -78,7 +78,7 @@ export const google = async (req, res, next) => {
       const { password, ...rest } = user._doc;
       return res
         .status(200)
-        .cookie("access-token", token, {
+        .cookie("access_token", token, {
           httpOnly: true,
         })
         .json(rest);
@@ -101,9 +101,9 @@ export const google = async (req, res, next) => {
     const newUserObj = userRes.toObject();
     delete newUserObj.password;
 
-    res
+    return res
       .status(200)
-      .cookie("access-token", token, {
+      .cookie("access_token", token, {
         httpOnly: true,
       })
       .json(newUserObj);
