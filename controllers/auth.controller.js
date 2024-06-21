@@ -52,7 +52,7 @@ export const signin = async (req, res, next) => {
       return next(errorThrower(400, "Wrong Credentials"));
     }
 
-    const token = jwt.sign({ id: validUser._id }, process.env.JWT_SECRET, {
+    const token = jwt.sign({ id: validUser._id, isAdmin: validUser.isAdmin }, process.env.JWT_SECRET, {
       expiresIn: "10d",
     });
 
@@ -74,7 +74,7 @@ export const google = async (req, res, next) => {
   try {
     const user = await User.findOne({ email });
     if (user) {
-      const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {expiresIn: '10d'});
+      const token = jwt.sign({ id: user._id, isAdmin: user.isAdmin }, process.env.JWT_SECRET, {expiresIn: '10d'});
       const { password, ...rest } = user._doc;
       return res
         .status(200)
@@ -97,7 +97,7 @@ export const google = async (req, res, next) => {
       profilePicture: googlePhotoUrl,
     });
     const userRes = await newUser.save();
-    const token = jwt.sign({ id: userRes._id }, process.env.JWT_SECRET);
+    const token = jwt.sign({ id: userRes._id, isAdmin: userRes.isAdmin }, process.env.JWT_SECRET, {expiresIn: '10d'});
     const newUserObj = userRes.toObject();
     delete newUserObj.password;
 
