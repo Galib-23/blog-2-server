@@ -13,23 +13,24 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
+app.use(express.json());
+app.use(cookieParser());
+
 const allowedOrigins = ["http://localhost:5173", "https://galib-blog.web.app"];
 
 const corsOptions = {
-  origin: (origin, callback) => {
-    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
       callback(null, true);
     } else {
       callback(new Error("Not allowed by CORS"));
     }
   },
-  methods: ["GET", "POST", "PUT", "DELETE"],
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
   credentials: true,
 };
 
 app.use(cors(corsOptions));
-app.use(express.json()); // body parser
-app.use(cookieParser());
 
 mongoose
   .connect(process.env.MONGO_URL)
@@ -43,7 +44,6 @@ mongoose
 app.get("/", (req, res) => {
   res.send("Blog server is running...");
 });
-1024;
 
 app.listen(PORT, () => {
   console.log(`Blog server running on port ${PORT}`);
@@ -54,7 +54,7 @@ app.use("/api/user", userRoutes);
 app.use("/api/post", postRoutes);
 app.use("/api/comment", commentRoutes);
 
-//Error handling middleware have default 4 parameters
+// Error handling middleware
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
   const message = err.message || "Internal Server Error";
