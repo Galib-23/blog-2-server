@@ -6,11 +6,14 @@ import userRoutes from "./routes/user.route.js";
 import postRoutes from "./routes/post.route.js";
 import commentRoutes from "./routes/comment.route.js";
 import cookieParser from "cookie-parser";
+import cors from 'cors';
 
 dotenv.config();
 const app = express();
 
 const PORT = process.env.PORT || 3000;
+
+app.use(cors());
 app.use(express.json()); // body parser
 app.use(cookieParser());
 
