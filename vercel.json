@@ -6,9 +6,9 @@
         "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
         "headers": {
           "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+          "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
           "Access-Control-Allow-Headers": "Content-Type",
-          "Access-Control-Allow-Credentials": true
+          "Access-Control-Allow-Credentials": "true"
         },
         "dest": "index.js"
       },
@@ -17,9 +17,9 @@
         "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
         "headers": {
           "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+          "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
           "Access-Control-Allow-Headers": "Content-Type",
-          "Access-Control-Allow-Credentials": true
+          "Access-Control-Allow-Credentials": "true"
         },
         "dest": "index.js"
       },
@@ -28,9 +28,9 @@
         "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
         "headers": {
           "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+          "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
           "Access-Control-Allow-Headers": "Content-Type",
-          "Access-Control-Allow-Credentials": true
+          "Access-Control-Allow-Credentials": "true"
         },
         "dest": "index.js"
       },
@@ -39,9 +39,9 @@
         "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
         "headers": {
           "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+          "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
           "Access-Control-Allow-Headers": "Content-Type",
-          "Access-Control-Allow-Credentials": true
+          "Access-Control-Allow-Credentials": "true"
         },
         "dest": "index.js"
       },
