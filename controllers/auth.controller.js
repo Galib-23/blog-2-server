@@ -68,7 +68,7 @@ export const signin = async (req, res, next) => {
         httpOnly: true,
         secure: true,
         sameSite: "Strict",
-        maxAge: 24 * 60 * 60 * 1000 * 30,
+        maxAge: 24 * 60 * 60 * 1000 * 7,
       })
       .json(rest);
   } catch (error) {
@@ -93,7 +93,7 @@ export const google = async (req, res, next) => {
           httpOnly: true,
           secure: true,
           sameSite: "Strict",
-          maxAge: 24 * 60 * 60 * 1000 * 30,
+          maxAge: 24 * 60 * 60 * 1000 * 7,
         })
         .json(rest);
     }
@@ -125,7 +125,7 @@ export const google = async (req, res, next) => {
         httpOnly: true,
         secure: true,
         sameSite: "Strict",
-        maxAge: 24 * 60 * 60 * 1000 * 30,
+        maxAge: 24 * 60 * 60 * 1000 * 7,
       })
       .json(newUserObj);
   } catch (error) {
