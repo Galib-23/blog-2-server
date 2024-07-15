@@ -24,14 +24,17 @@ app.use(
       }
     },
     credentials: true,
-  })
+  }),
 );
 
 app.use(express.json());
 app.use(cookieParser());
 
 mongoose
-  .connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
     console.log("MongoDB is connected!");
   })
